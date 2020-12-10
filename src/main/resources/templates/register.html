@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Welcome to Customer Register System</title>
+    <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+</head>
+
+
+<body>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="/">Register and List All Customers System by Emre Okumus</a>
+</nav>
+
+<br>
+<div style="text-align:center">
+    <h1>Customer Register</h1>
+    <form method="post" action="/save" modelAttribute="customer">
+        <section>Customer Name: <br>
+            <input id="customerName" autofocus="autofocus" size="35" type="text" required="required" name="customerName"
+                   maxlength="30"/>
+        </section>
+        <br>
+        <section>Customer Surname: <br>
+            <input id="customerSurname" autofocus="autofocus" size="35" type="text" required="required"
+                   name="customerSurname" maxlength="30"/>
+        </section>
+        <br>
+        <section>Customer City: <br>
+            <input id="city" autofocus="autofocus" size="35" type="text" required="required"
+                   name="city" maxlength="30"/>
+        </section>
+        <br>
+        <p>
+            <input size="35" type="submit" value="Kaydet"/>
+        </p>
+    </form>
+    <form action="/listAllCustomers" method="get">
+        <input type="submit" value="List Customers"/>
+    </form>
+    <span th:text="${message}"></span>
+</div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Welcome to Customer Register System</title>
+    <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+</head>
+
+
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="/">Register and List All Customers System by Emre Okumus</a>
+</nav>
+<div style="text-align:center">
+    <h1>Customer List</h1>
+    <br>
+    <table class="center">
+        <thead>
+        <tr style="font-weight:bold" bgcolor="#696969">
+            <th> ID</th>
+            <th> Customer Name</th>
+            <th> Customer Surname</th>
+            <th> Customer City</th>
+        </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="customer ,iterStat: ${customerList}">
+            <tr th:bgcolor="${iterStat.odd}?white:lightgray">
+                <td th:text="${customer.id}"></td>
+                <td th:text="${customer.customerName}"></td>
+                <td th:text="${customer.customerSurname}"></td>
+                <td th:text="${customer.city}"></td>
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+    <br>
+    <span th:text="${message}"></span>
+    <br>
+
+    <form action="/registiration">
+        <input type="submit" value="Back"/>
+    </form>
+
+</div>
+</body>
+</html>
